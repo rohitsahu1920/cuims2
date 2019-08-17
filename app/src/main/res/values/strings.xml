@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CUIMS</string>
+    <string name="notes">Creates Notes</string>
+    <string name="cuims">Go to CUIMS</string>
+    <string name="many">Many more Coming soon....!</string>
+    <string name="Title">Title here</string>
+    <string name="subject">Enter Subject</string>
+    <string name="save">Save</string>
+    <string name="body">Body here</string>
+    <string name="soon">Many more coming soon......</string>
+    <string name="welcome_to_">Welcome To Chandigarh University</string>
+    <string name="loading">Loading..</string>
+    <string name="scan_again">Scan again</string>
+    <string name="qqrscan">Qr Scanner</string>
+
+</resources>

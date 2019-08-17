@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="back" app:showAsAction="always" android:icon="@drawable/ic_action_backword" android:id="@+id/item_backword"/>
+
+    <item android:title="Home" app:showAsAction="always" android:icon="@drawable/ic_action_home" android:id="@+id/item_home"/>
+
+    <item android:title="Forward" app:showAsAction="always" android:icon="@drawable/ic_action_forward" android:id="@+id/item_forword"/>
+
+    <item android:title="Free books " app:showAsAction="ifRoom" android:id="@+id/item_google"/>
+
+    <item android:title="Chandigarh university " app:showAsAction="ifRoom" android:id="@+id/item_mu"/>
+
+    <item android:title="tutorialspoint.com " app:showAsAction="ifRoom" android:id="@+id/item_tp"/>
+
+    <item android:title="Google.com" app:showAsAction="ifRoom" android:id="@+id/google"/>
+
+    <item android:title="Rate us !!!" app:showAsAction="ifRoom" android:id="@+id/rate"/>
+
+</menu>

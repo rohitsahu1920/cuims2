@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".main_page"
+    android:orientation="vertical">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_marginTop="10dp"
+       android:layout_height="50dp"
+       android:background="#FF0000"
+       android:orientation="horizontal">
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:text="@string/welcome_to_"
+          android:gravity="center"
+          android:textColor="#e4e809"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:id="@+id/welcome"/>
+
+   </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_notepad"
+            android:textColor="#e4e809"
+            android:layout_margin="10dp"
+            android:id="@+id/notes"
+            android:background="#FF0000"
+            android:paddingTop="40sp"
+            android:drawablePadding="1sp"
+            android:text="@string/notes" />
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_cuims"
+            android:textColor="#e4e809"
+            android:layout_margin="10dp"
+            android:id="@+id/cuims"
+            android:background="#FF0000"
+            android:paddingTop="40sp"
+            android:drawablePadding="1sp"
+            android:text="@string/cuims" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_qr"
+            android:textColor="#e4e809"
+            android:layout_marginRight="10dp"
+            android:id="@+id/qr_code"
+            android:background="#FF0000"
+            android:paddingTop="40sp"
+            android:drawablePadding="1sp"
+            android:text="@string/qqrscan" />
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textColor="#e4e809"
+            android:id="@+id/soon"
+            android:background="#FF0000"
+            android:paddingTop="40sp"
+            android:drawablePadding="1sp"
+            android:text="@string/soon" />
+
+
+
+    </LinearLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <com.google.android.gms.ads.AdView
+           xmlns:ads="http://schemas.android.com/apk/res-auto"
+           android:id="@+id/adView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_alignParentBottom="true"
+           ads:adSize="SMART_BANNER"
+           ads:adUnitId="ca-app-pub-7298114047017115/2788931864">
+       </com.google.android.gms.ads.AdView>
+   </RelativeLayout>
+</LinearLayout>
