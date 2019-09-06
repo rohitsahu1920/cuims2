@@ -7,8 +7,8 @@ android {
         applicationId "sahu.rohit.cuims2"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 8
-        versionName "4.0"
+        versionCode 9
+        versionName "4.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,6 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -28,11 +29,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //noinspection GradleCompatible
     implementation 'com.android.support:support-v4:28.0.0'
+    //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.google.firebase:firebase-ads:18.1.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
     implementation 'me.dm7.barcodescanner:zxing:1.9.8'
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:customtabs:28.0.0-alpha3'
 }

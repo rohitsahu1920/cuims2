@@ -3,5 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:title="Free books " app:showAsAction="ifRoom" android:icon="@drawable/ic_about" android:id="@+id/about"/>
+    <item
+        android:title="Chnage Color"
+        android:id="@+id/color">
+
+        <menu>
+            <item android:id="@+id/red" android:title="Red"/>
+            <item android:id="@+id/black" android:title="Black"/>
+            <item android:id="@+id/white" android:title="White"/>
+            <item android:id="@+id/green" android:title="green"/>
+            <item android:id="@+id/orange" android:title="orange"/>
+        </menu>
+
+    </item>
 
 </menu>

@@ -56,8 +56,10 @@ public class delete_data extends AppCompatActivity {
             }
         });
 
+    }
 
-
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), main_page.class));
     }
 }

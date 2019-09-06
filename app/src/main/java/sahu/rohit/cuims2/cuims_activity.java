@@ -94,6 +94,7 @@ public class cuims_activity extends AppCompatActivity {
         this.webView.getSettings().setJavaScriptEnabled(true);
         webView.setVerticalScrollBarEnabled(false);
         webView.loadUrl(address);
+        webView.getSettings().setSavePassword(true);
         webView.getSettings().setPluginState(WebSettings.PluginState.ON);
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);

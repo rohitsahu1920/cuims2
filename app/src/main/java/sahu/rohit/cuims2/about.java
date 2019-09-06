@@ -9,45 +9,27 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class about extends AppCompatActivity {
 
-    Animation anim1,anim2;
+    AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        MobileAds.initialize(this, "ca-app-pub-7298114047017115~7707992726");
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-7298114047017115/6685382602");
 
-    }
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
-    private void moveIcon( View view )
-    {
-        int originalPos[] = new int[2];
-        view.getLocationOnScreen(originalPos);
-
-        anim2 = new TranslateAnimation( 0, 0, 0, originalPos[1]+100 );
-        anim2.setDuration(2000);
-        anim2.setFillAfter(true);
-        view.startAnimation(anim2);
-    }
-
-    private void moveViewToScreenCenter( View view )
-    {
-        RelativeLayout root = (RelativeLayout) findViewById( R.id.ctr );
-        DisplayMetrics dm = new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int statusBarOffset = dm.heightPixels - root.getMeasuredHeight();
-
-        int originalPos[] = new int[2];
-        view.getLocationOnScreen(originalPos);
-
-        int xDest = dm.widthPixels/2;
-        xDest -= (view.getMeasuredWidth()/2);
-        int yDest = dm.heightPixels/2 - (view.getMeasuredHeight()/2) - statusBarOffset;
-
-        anim1 = new TranslateAnimation( 0, 0, 0, yDest - originalPos[1]+250 );
-        anim1.setDuration(1500);
-        anim1.setFillAfter(true);
-        view.startAnimation(anim1);
     }
 }

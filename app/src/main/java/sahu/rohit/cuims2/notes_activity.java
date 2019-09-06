@@ -43,6 +43,8 @@ public class notes_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_activity);
 
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         FloatingActionButton floatingActionButton = findViewById(R.id.fab_Note);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,49 @@ public class notes_activity extends AppCompatActivity {
         theList = new ArrayList<>();
 
         retive();
+
+      listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+          @Override
+          public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+              Student student = list.get(i);
+              final String title = student.getTitle();
+              final String body = student.getBody();
+              final String subject = student.getSubject();
+
+              builder.setMessage("Note:- Data will be permanently delete..!")
+                      .setCancelable(true)
+                      .setTitle("Do you really want to Delete ?")
+                      .setIcon(R.drawable.ic_warning)
+                      .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface dialogInterface, int i) {
+                              Boolean delete = db.delete(title,body,subject);
+                              if(delete == true)
+                              {
+                                  Toast.makeText(getApplicationContext(),"Record Deleted Successfully",Toast.LENGTH_LONG).show();
+                                  retive();
+                              }
+                              else
+                              {
+                                  Toast.makeText(getApplicationContext(),"Problem in deleting Record",Toast.LENGTH_LONG).show();
+                              }
+                          }
+                      });
+
+              builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialogInterface, int i) {
+                      dialogInterface.cancel();
+                  }
+              });
+
+              AlertDialog alert11 = builder.create();
+              alert11.show();
+
+              return false;
+          }
+      });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -104,6 +149,9 @@ public class notes_activity extends AppCompatActivity {
     }
 
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), main_page.class));
+    }
 
 }

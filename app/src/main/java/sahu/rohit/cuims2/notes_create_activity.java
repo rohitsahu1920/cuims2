@@ -48,4 +48,9 @@ public class notes_create_activity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), main_page.class));
+    }
 }

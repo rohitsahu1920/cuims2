@@ -44,4 +44,6 @@ public class qrcode_activity extends AppCompatActivity implements ZXingScannerVi
         scannerView.setResultHandler(this);
         scannerView.startCamera();
     }
+
+
 }

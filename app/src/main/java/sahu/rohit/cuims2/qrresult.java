@@ -61,4 +61,9 @@ public class qrresult extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), main_page.class));
+    }
 }

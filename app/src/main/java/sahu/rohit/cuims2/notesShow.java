@@ -1,7 +1,9 @@
 package sahu.rohit.cuims2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +23,8 @@ public class notesShow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_show);
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         db = new DatabaseHelper(this);
         Button btn = findViewById(R.id.noteSaveButton);
@@ -74,23 +78,55 @@ public class notesShow extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.delete_notes:
 
-                String sub1 = sub.getText().toString();
-                Boolean delete = db.delete(sub1);
-                if(delete == true)
-                {
-                    Toast.makeText(getApplicationContext(),"Record Deleted... :)",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),notes_activity.class);
-                    startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Problem In Deletion",Toast.LENGTH_SHORT).show();
-                }
+                delete_data();
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), main_page.class));
+    }
+
+    public void delete_data()
+    {
+        final String sub1 = sub.getText().toString();
+        final String title1 = title.getText().toString();
+        final String body1 = body.getText().toString();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Note:- Data will be permanently delete..!")
+                .setCancelable(true)
+                .setTitle("Do you really want to Delete ?")
+                .setIcon(R.drawable.ic_warning)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Boolean delete = db.delete(title1,body1,sub1);
+                        if(delete == true)
+                        {
+                            Toast.makeText(getApplicationContext(),"Record Deleted... :)",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(),notes_activity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"Problem In Deletion",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog alert11 = builder.create();
+        alert11.show();
     }
 }

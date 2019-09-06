@@ -44,11 +44,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean delete(String subject)
+    public boolean delete(String title, String body ,String subject)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        //long delete = db.delete("cuims", "title = "+title+" and body = "+body+" and subject = "+subject,null);
-        long delete = db.delete("cuims", "subject = ?",new String[]{subject});
+        long delete = db.delete("cuims", "title = ? and body = ? and subject = ?",new String[]{title,body,subject});
 
         if(delete == -1)
         {
